@@ -11,10 +11,9 @@ interface Props {
 
 export const TodoModal: React.FC<Props> = ({ todo, onClose }) => {
   const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(true);
     getUser(todo.userId)
       .then(setUser)
       .finally(() => setLoading(false));
